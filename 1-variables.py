@@ -1,212 +1,81 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# Variables.csv
-
-# In[10]:
-
+"""Given a set of metadata defined in workbook_format.csv, processes each sheet in the BP
+workbook, concatenates all variables, and writes the output as variables.csv
+"""
 
 import pandas as pd
-import numpy as np
-import xlrd
-import os
-import re
-from tqdm import tqdm
 
 
-# In[11]:
+def process_sheet(sheet_name, skiprows, subvariable, unit_override):
+    """Processes one sheet of the BP workbook according to the specifications of the
+    workbook_format.csv file.
+
+    Arguments:
+        sheet_name {str} -- Name of the sheet in the BP workbook
+        skiprows {int} -- Number of rows to skip before the row containing the units
+        subvariable {str} -- If empty, the sheet is processed as normal. If filled, a variable is
+        created as "subvariable". To be used to create multiple variables from one given BP sheet
+        unit_override {str} -- If empty, the units are set to the name of the first column, i.e. the
+        top-left cell of the sheet after applying skiprows. If filled, the value is overridden.
+
+    Returns:
+        [DataFrame] -- DataFrame with header: name,unit,notes
+        Name = sheet_name if subvariable is empty, or subvariable if subvariable is filled.
+        Unit = name of the first column, i.e. the top-left cell of the sheet after applying skiprows
+        unless overridden by unit_override.
+        Notes = extracted as the first row in the left-most column containing "Notes:|Note:"
+        and all subsequent rows.
+
+    Raises:
+        Exception -- An exception is raised if after applying skiprows, the top-left cell of the
+        sheet (which should be the units) is empty.
+    """
+    print(sheet_name)
+
+    sheet = pd.read_excel("input/bp_data_2019.xlsx", sheet_name=sheet_name, skiprows=skiprows)
+
+    if pd.isnull(unit_override):
+        unit = sheet.columns[0]
+        if unit == "Unnamed: 0":
+            raise Exception(f"No unit found - skiprows is probably wrong for sheet: {sheet_name}")
+    else:
+        unit = unit_override
+
+    notes_idx = sheet[sheet.iloc[:, 0].str.contains(("Notes:|Note:"), na=False)].index.values
+    if len(notes_idx) > 0:
+        notes_idx = notes_idx[0]
+        notes = " ".join(sheet.iloc[notes_idx:, 0].values)
+    else:
+        notes = pd.NA
+
+    return pd.DataFrame({
+        "name": sheet_name if pd.isnull(subvariable) else subvariable,
+        "unit": unit,
+        "notes": [notes]
+    })
 
 
-class Data:
-    def __init__(self, data_path):
-        
-        # path to xlsx file
-        self.data_path = data_path
-        
-        # list of sheets
-        self.sheets = [
-        "Biofuels Production - Kboed",
-        "Biofuels Production - Ktoe",
-        "Carbon Dioxide Emissions",
-        "Coal - Prices",
-        "Coal - Reserves",
-        "Coal Consumption - Mtoe",
-        "Coal Production - Mtoe",
-        "Coal Production - Tonnes",
-        "Electricity Generation ",
-        "Gas - Prices ",
-        "Gas - Proved reserves",
-        "Gas - Proved reserves history ",
-        "Gas Consumption - Bcf",
-        "Gas Consumption - Bcm",
-        "Gas Consumption - Mtoe",
-        "Gas Production - Bcf",
-        "Gas Production - Bcm",
-        "Gas Production - Mtoe",
-        "Geo Biomass Other - Mtoe",
-        "Geo Biomass Other - TWh",
-        "Geothermal Capacity",
-           "Hydro Consumption - Mtoe",
-        "Hydro Generation - TWh",
-            "Nuclear Consumption - Mtoe",
-        "Nuclear Generation - TWh",
-            "Oil - Proved reserves",
-        "Oil - Proved reserves history",
-        "Oil - Refinery throughput",
-        "Oil - Refining capacity",
-            "Oil - Spot crude prices",
-            "Oil Consumption - Barrels",
-            "Oil Consumption - Tonnes",
-        "Oil Production - Barrels",
-            "Oil Production - Tonnes",
-            "Primary Energy Consumption",
-            "Renewables - Mtoe",
-        "Renewables - TWh",
-            "Solar Capacity",
-        "Solar Consumption - Mtoe",
-        "Solar Generation - TWh",
-        "Wind Capacity",
-        "Wind Consumption - Mtoe",
-        "Wind Generation - TWh ",
-        "Cobalt and Lithium - Prices",
-        "Cobalt Production-Reserves", 
-        "Elec Gen by fuel", 
-        "Elec Gen from Coal",
-        "Elec Gen from Gas",
-        "Elec Gen from Oil",
-        "Elec Gen from Other",
-        "Graphite Production-Reserves",
-        "Lithium Production-Reserves",
-        "Oil - Crude prices since 1861",
-        "Oil Consumption - Mtoe",
-        "Primary Energy - Cons by fuel", 
-        "Primary Energy - Cons capita",
-        "Rare Earth Production-Reserves",
-        "Renewables Generation by source" 
-            
-        ]
-        
-        # counter for ids
-        self.counter = 1
+def main():
+    """Given a set of metadata defined in workbook_format.csv, processes each sheet in the BP
+    workbook, concatenates all variables, and writes the output as variables.csv
+    """
 
-        self.names, self.units, self.notes, self.ids = [], [], [], []
-        
-        #sheets with custom skiprow argument
-        self.names_custom_start_row = {
-            "Coal - Prices": 1, 
-            "Coal - Reserves": 3,
-            "Gas - Prices ": 1,
-            "Geothermal Capacity": 3,
-            "Oil - Spot crude prices": 3,
-            "Solar Capacity": 3,
-            "Wind Capacity": 3,
-            "Cobalt and Lithium - Prices": 4
-        }
-        
-        #sheets with custom index column
-        self.names_custom_index = {
-            "Gas - Proved reserves": "Trillion cubic metres", 
-            "Oil - Proved reserves": "Thousand million barrels" #3
-        }
-        
-        self.multiple_variables = {
-         "Coal - Reserves": ["Coal - Reserves - Anthracite and bituminous", 
-                     "Coal - Reserves - Sub-bituminous and lignite",
-                     "Coal - Reserves - Total"],
-        "Cobalt and Lithium - Prices": ["Cobalt and Lithium - Prices - Cobalt",
-                                       "Cobalt and Lithium - Prices - Lithium Carbonate"],
-        "Cobalt Production-Reserves": ["Cobalt Production-Reserves - Production",
-                                      "Cobalt Production-Reserves - Reserves"],
-        "Elec Gen by fuel": ["Elec Gen by fuel - Oil", "Elec Gen by fuel - Natural Gas",
-                            "Elec Gen by fuel - Coal", "Elec Gen by fuel - Nuclear energy",
-                            "Elec Gen by fuel - Hydro electric", "Elec Gen by fuel - Renewables",
-                            "Elec Gen by fuel - Other #", "Elec Gen by fuel - Total"],
-        "Primary Energy - Cons by fuel": ["Primary Energy - Cons by fuel - Oil", "Primary Energy - Cons by fuel - Natural Gas",
-                            "Primary Energy - Cons by fuel - Coal", "Primary Energy - Cons by fuel - Nuclear energy",
-                            "Primary Energy - Cons by fuel - Hydro electric", "Primary Energy - Cons by fuel - Renewables", 
-                            "Primary Energy - Cons by fuel - Total"],
-        "Renewables Generation by source": ["Renewables Generation by source - Wind", "Renewables Generation by source - Solar",
-                                           "Renewables Generation by source - Other renewables+", "Renewables Generation by source - Total"]
-        }
-        
+    metadata = pd.read_csv("input/workbook_format.csv")
+    variables = []
 
-    # if custom is True then we use names_custom_index dict 
-    def process_sheet(self, sh, skiprows, custom=False):
+    for _, row in metadata.iterrows():
+        variables.append(process_sheet(
+            sheet_name=row.sheet_name,
+            skiprows=row.skiprows,
+            subvariable=row.subvariable,
+            unit_override=row.unit_override
+        ))
 
-        data = pd.read_excel(self.data_path, na_values=['n/a'], 
-              sheet_name=sh, 
-              skiprows=skiprows)
-        unit = "Total proved reserves" if custom else data.columns[0]
-        data.fillna("none", inplace=True)
-        try:
-            startLoc = data[data[unit].str.contains(('Notes:|Note:'), na=False)].index.values[0]
-            note = " ".join(data.loc[startLoc:][unit].values)
-        except:
-            note = ""
+    variables = pd.concat(variables)
 
-        unit_to_add = self.names_custom_index[sh] if custom else unit
-        
-        if sh in self.multiple_variables:
-            for x in self.multiple_variables[sh]:
-                
-                self.names.append(x)
-                self.units.append(unit_to_add)
-                self.notes.append(note)
-                self.ids.append(self.counter)
-                self.counter += 1
-        else:
-            
-
-            self.names.append(sh)
-            self.units.append(unit_to_add)
-            self.notes.append(note)
-            self.ids.append(self.counter)
-            self.counter += 1
-            
-    def run_all(self):
-        for sh in tqdm(self.sheets):
-            if sh in self.names_custom_start_row:
-                self.process_sheet(sh, self.names_custom_start_row[sh], custom=False)
-            elif sh in self.names_custom_index:
-                self.process_sheet(sh, 1, custom=True)
-            else:
-                self.process_sheet(sh, 2, custom=False)
-        
-            
+    variables["id"] = range(1, len(variables)+1)
+    variables = variables[["id", "name", "unit", "notes"]]
+    variables.to_csv("output/variables.csv", index=False)
 
 
-# In[12]:
-
-
-dat = Data('./input/bp_stats.xlsx')
-dat.run_all()
-
-
-# In[13]:
-
-
-final = pd.DataFrame({
-    'id': dat.ids,
-    'name': dat.names,
-    'unit': dat.units,
-    'notes': dat.notes
-})
-
-
-# In[14]:
-
-
-final
-
-
-# In[15]:
-
-
-final.to_csv("./output/variables.csv", index=False)
-
-
-# In[ ]:
-
-
-
-
+if __name__ == '__main__':
+    main()
