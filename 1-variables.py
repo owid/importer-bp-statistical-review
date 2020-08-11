@@ -13,15 +13,13 @@ def process_sheet(sheet_name, skiprows, subvariable, unit_override):
         sheet_name {str} -- Name of the sheet in the BP workbook
         skiprows {int} -- Number of rows to skip before the row containing the units
         subvariable {str} -- If empty, the sheet is processed as normal. If filled, a variable is
-        created as f"{sheet_name} - {subvariable}". Should be used to create multiple variables from
-        one given BP sheet
+        created as "subvariable". To be used to create multiple variables from one given BP sheet
         unit_override {str} -- If empty, the units are set to the name of the first column, i.e. the
         top-left cell of the sheet after applying skiprows. If filled, the value is overridden.
 
     Returns:
         [DataFrame] -- DataFrame with header: name,unit,notes
-        Name = sheet_name if subvariable is empty, or f"{sheet_name} - {subvariable}" if subvariable
-        is filled.
+        Name = sheet_name if subvariable is empty, or subvariable if subvariable is filled.
         Unit = name of the first column, i.e. the top-left cell of the sheet after applying skiprows
         unless overridden by unit_override.
         Notes = extracted as the first row in the left-most column containing "Notes:|Note:"
@@ -50,7 +48,7 @@ def process_sheet(sheet_name, skiprows, subvariable, unit_override):
         notes = pd.NA
 
     return pd.DataFrame({
-        "name": sheet_name if pd.isnull(subvariable) else f"{sheet_name} - {subvariable}",
+        "name": sheet_name if pd.isnull(subvariable) else subvariable,
         "unit": unit,
         "notes": [notes]
     })
