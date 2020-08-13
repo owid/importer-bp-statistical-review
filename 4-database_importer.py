@@ -4,19 +4,29 @@ from db_utils import DBUtils
 
 def main():
 
-    all_entities = pd.read_csv("./standardization/entities-standardized.csv")
+    bp_entities = pd.read_csv("./standardization/entities.csv")
+    std_entities = pd.read_csv("./standardization/entities-standardized.csv")
+    new_entities = bp_entities[-bp_entities.name.isin(std_entities.name)]
+
+    if len(new_entities) > 0:
+        print("The following entities do not exist yet in entities-standardized.csv")
+        print(new_entities)
+        print("Press CTRL+C to cancel and match+add them yourself to entities-standardized.csv")
+        _ = input("or press ENTER to proceed and look them up (or create) in the database: ")
+
+    std_entities = pd.concat([std_entities, new_entities]).reset_index(drop=True)
+    std_entities.loc[
+        std_entities.standardized_name.isnull(), "standardized_name"
+    ] = std_entities.name
 
     db = DBUtils(connection.cursor())
 
-    new_entities = all_entities[all_entities["db_entity_id"].isnull()]
+    for _, row in std_entities[std_entities.db_entity_id.isnull()].iterrows():
+        std_entities.loc[
+            std_entities.standardized_name == row["standardized_name"], "db_entity_id"
+        ] = db.get_or_create_entity(row["standardized_name"])
 
-    for _, entity in new_entities.iterrows():
-        entity_id = entity.name
-        entity_name = entity["name"]
-        db_entity_id = db.get_or_create_entity(entity_name)
-        all_entities.loc[entity_id, "db_entity_id"] = db_entity_id
-
-    db_entity_id_by_name = dict(zip(all_entities.name, all_entities.db_entity_id))
+    db_entity_id_by_bp_name = dict(zip(std_entities.name, std_entities.db_entity_id))
 
     # Inserting the dataset
     db_dataset_id = db.upsert_dataset(
@@ -53,7 +63,7 @@ def main():
         values = [(
             float(row["value"]),
             int(row["year"]),
-            db_entity_id_by_name[row["country"]],
+            db_entity_id_by_bp_name[row["country"]],
             db_variable_id
         ) for _, row in data_values.iterrows()]
 
