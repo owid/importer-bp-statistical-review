@@ -4,13 +4,12 @@ from db_utils import DBUtils
 
 def main():
 
-    entities = pd.read_csv("./standardization/entities-standardized.csv")
+    all_entities = pd.read_csv("./standardization/entities-standardized.csv")
 
     with connection as cnx:
 
         db = DBUtils(cnx)
 
-        all_entities = entities.copy()
         new_entities = all_entities[all_entities["db_entity_id"].isnull()]
 
         for _, entity in new_entities.iterrows():
@@ -19,10 +18,7 @@ def main():
             db_entity_id = db.get_or_create_entity(entity_name)
             all_entities.loc[entity_id, "db_entity_id"] = db_entity_id
 
-        db_entity_id_by_name = {
-            row["name"]: int(row["db_entity_id"])
-            for _, row in all_entities.iterrows()
-        }
+        db_entity_id_by_name = dict(zip(all_entities.name, all_entities.db_entity_id))
 
         # Inserting the dataset
         db_dataset_id = db.upsert_dataset(
