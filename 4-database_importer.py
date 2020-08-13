@@ -27,13 +27,13 @@ def main():
         # Inserting the dataset
         db_dataset_id = db.upsert_dataset(
             name="BP Statistical Review of Global Energy",
-            namespace="bpstatreview_2019",
+            namespace="bpstatreview_2020",
             user_id=35
         )
 
         #Inserting the source
         db_source_id = db.upsert_source(
-            name="BP Statistical Review of Global Energy (2019)",
+            name="BP Statistical Review of Global Energy (2020)",
             description="",
             dataset_id=db_dataset_id
         )
