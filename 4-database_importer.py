@@ -67,7 +67,7 @@ def main():
             db_variable_id
         ) for _, row in data_values.iterrows()]
 
-        print("Inserting values…")
+        print("Inserting values...")
         db.upsert_many("""
             INSERT INTO data_values (value, year, entityId, variableId)
             VALUES (%s, %s, %s, %s)
