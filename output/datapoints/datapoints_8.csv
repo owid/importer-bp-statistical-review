@@ -1,0 +1,134 @@
+country,year,value
+Northwest Europe marker price,2001,39.0342307692308
+Northwest Europe marker price,2002,31.6496153846154
+Northwest Europe marker price,2003,43.5978846153846
+Northwest Europe marker price,2004,72.1343396226415
+Northwest Europe marker price,2005,60.5392307692308
+Northwest Europe marker price,2006,64.1080769230769
+Northwest Europe marker price,2007,88.7851923076923
+Northwest Europe marker price,2008,147.673653846154
+Northwest Europe marker price,2009,70.3888461538462
+Northwest Europe marker price,2010,92.3524528301887
+Northwest Europe marker price,2011,121.48
+Northwest Europe marker price,2012,92.4996153846154
+Northwest Europe marker price,2013,81.6890384615385
+Northwest Europe marker price,2014,75.3807692307692
+Northwest Europe marker price,2015,56.7940384615384
+Northwest Europe marker price,2016,59.8691257861635
+Northwest Europe marker price,2017,84.5104134615385
+Northwest Europe marker price,2018,91.8270576923077
+Northwest Europe marker price,2019,60.85525
+US Central Appalachian coal spot price index,2001,50.15465
+US Central Appalachian coal spot price index,2002,33.1979844097222
+US Central Appalachian coal spot price index,2003,38.5227057986111
+US Central Appalachian coal spot price index,2004,64.9017399305556
+US Central Appalachian coal spot price index,2005,70.1223552083333
+US Central Appalachian coal spot price index,2006,57.8167156862745
+US Central Appalachian coal spot price index,2007,49.7331823529412
+US Central Appalachian coal spot price index,2008,117.417644411765
+US Central Appalachian coal spot price index,2009,60.7346101923077
+US Central Appalachian coal spot price index,2010,67.8741225
+US Central Appalachian coal spot price index,2011,84.7549824509804
+US Central Appalachian coal spot price index,2012,67.2813660784314
+US Central Appalachian coal spot price index,2013,69.7172329411765
+US Central Appalachian coal spot price index,2014,67.0841408333334
+US Central Appalachian coal spot price index,2015,51.5664419230769
+US Central Appalachian coal spot price index,2016,51.4477326923077
+US Central Appalachian coal spot price index,2017,63.8252898076923
+US Central Appalachian coal spot price index,2018,72.8440116346154
+US Central Appalachian coal spot price index,2019,57.163983790062
+Japan steam spot CIF price,2001,37.689875
+Japan steam spot CIF price,2002,31.4747416666667
+Japan steam spot CIF price,2003,39.6125958333333
+Japan steam spot CIF price,2004,74.2158333333333
+Japan steam spot CIF price,2005,64.6230833333333
+Japan steam spot CIF price,2006,65.2175
+Japan steam spot CIF price,2007,95.5860333333333
+Japan steam spot CIF price,2008,157.8775
+Japan steam spot CIF price,2009,83.5866666666667
+Japan steam spot CIF price,2010,108.465316666667
+Japan steam spot CIF price,2011,126.130833333333
+Japan steam spot CIF price,2012,100.298333333333
+Japan steam spot CIF price,2013,90.065
+Japan steam spot CIF price,2014,76.13
+Japan steam spot CIF price,2015,60.0958833333334
+Japan steam spot CIF price,2016,71.6579603448276
+Japan steam spot CIF price,2017,95.5655203
+Japan steam spot CIF price,2018,112.733312356322
+Japan steam spot CIF price,2019,77.6281152681992
+China Qinhuangdao spot price,2001,31.784010517914
+China Qinhuangdao spot price,2002,33.1948659760457
+China Qinhuangdao spot price,2003,31.7443731971024
+China Qinhuangdao spot price,2004,42.7604587359202
+China Qinhuangdao spot price,2005,51.3415356820193
+China Qinhuangdao spot price,2006,53.5262399312587
+China Qinhuangdao spot price,2007,61.2278258437828
+China Qinhuangdao spot price,2008,104.972162580849
+China Qinhuangdao spot price,2009,87.861704444851
+China Qinhuangdao spot price,2010,110.079209219283
+China Qinhuangdao spot price,2011,127.268401092737
+China Qinhuangdao spot price,2012,111.889712143555
+China Qinhuangdao spot price,2013,95.4186317633735
+China Qinhuangdao spot price,2014,84.1164274667579
+China Qinhuangdao spot price,2015,67.5318794822575
+China Qinhuangdao spot price,2016,71.3488625489864
+China Qinhuangdao spot price,2017,94.7234710025867
+China Qinhuangdao spot price,2018,99.4467521195986
+China Qinhuangdao spot price,2019,85.8911013678197
+Japan coking coal import CIF price,2001,41.3291666666667
+Japan coking coal import CIF price,2002,42.0133333333333
+Japan coking coal import CIF price,2003,41.57
+Japan coking coal import CIF price,2004,60.96
+Japan coking coal import CIF price,2005,89.33
+Japan coking coal import CIF price,2006,93.4625
+Japan coking coal import CIF price,2007,88.2425
+Japan coking coal import CIF price,2008,179.026666666667
+Japan coking coal import CIF price,2009,167.8225
+Japan coking coal import CIF price,2010,158.945833333333
+Japan coking coal import CIF price,2011,229.123333333333
+Japan coking coal import CIF price,2012,191.464166666667
+Japan coking coal import CIF price,2013,140.446666666667
+Japan coking coal import CIF price,2014,114.413333333333
+Japan coking coal import CIF price,2015,93.845
+Japan coking coal import CIF price,2016,89.3983333333333
+Japan coking coal import CIF price,2017,150.0025
+Japan coking coal import CIF price,2018,158.4925
+Japan coking coal import CIF price,2019,148.518333333333
+Japan steam coal import CIF price,2001,37.9616666666667
+Japan steam coal import CIF price,2002,36.8991666666667
+Japan steam coal import CIF price,2003,34.74
+Japan steam coal import CIF price,2004,51.34
+Japan steam coal import CIF price,2005,62.91
+Japan steam coal import CIF price,2006,63.0358333333333
+Japan steam coal import CIF price,2007,69.8608333333333
+Japan steam coal import CIF price,2008,122.81
+Japan steam coal import CIF price,2009,110.106666666667
+Japan steam coal import CIF price,2010,105.185
+Japan steam coal import CIF price,2011,136.208333333333
+Japan steam coal import CIF price,2012,133.613333333333
+Japan steam coal import CIF price,2013,111.1575
+Japan steam coal import CIF price,2014,97.6541666666667
+Japan steam coal import CIF price,2015,79.47
+Japan steam coal import CIF price,2016,72.9666666666667
+Japan steam coal import CIF price,2017,99.1625
+Japan steam coal import CIF price,2018,117.390833333333
+Japan steam coal import CIF price,2019,108.580833333333
+Asian marker price,2001,36.8945987654321
+Asian marker price,2002,30.4066666666667
+Asian marker price,2003,36.5291975308642
+Asian marker price,2004,72.4166666666667
+Asian marker price,2005,61.84
+Asian marker price,2006,56.4736135802469
+Asian marker price,2007,84.565
+Asian marker price,2008,148.058333333333
+Asian marker price,2009,78.8066666666667
+Asian marker price,2010,105.430833333333
+Asian marker price,2011,125.736666666667
+Asian marker price,2012,105.504166666667
+Asian marker price,2013,90.8966666666667
+Asian marker price,2014,77.8875
+Asian marker price,2015,63.5166845407
+Asian marker price,2016,71.1226424166667
+Asian marker price,2017,99.42222066599
+Asian marker price,2018,111.693086427362
+Asian marker price,2019,80.805845543977

@@ -1,0 +1,309 @@
+country,year,value
+Brazil,1995,33.59
+Brazil,1996,40.466
+Brazil,1997,41.444
+Brazil,1998,61.369
+Brazil,1999,53.503
+Brazil,2000,71.208
+Brazil,2001,60.666
+Brazil,2002,60.922
+Brazil,2003,70.739
+Brazil,2004,76.332
+Brazil,2005,75.515
+Brazil,2006,76.194
+Brazil,2007,77.163
+Brazil,2008,80.5
+Brazil,2009,59.425
+Brazil,2010,92.364
+Brazil,2011,105.188
+Brazil,2012,88.11
+Brazil,2013,91.908
+Brazil,2014,87.026
+Brazil,2015,75.1
+Brazil,2016,85.0
+Brazil,2017,85.0
+Brazil,2018,95.0
+Brazil,2019,96.0
+Canada,1995,25.0
+Canada,1996,25.0
+Canada,1997,25.0
+Canada,1998,25.0
+Canada,1999,25.0
+Canada,2000,25.0
+Canada,2001,35.0
+Canada,2002,25.0
+Canada,2003,25.0
+Canada,2004,28.0
+Canada,2005,28.0
+Canada,2006,28.0
+Canada,2007,28.0
+Canada,2008,27.0
+Canada,2009,15.0
+Canada,2010,20.0
+Canada,2011,25.0
+Canada,2012,24.0
+Canada,2013,20.0
+Canada,2014,30.0
+Canada,2015,30.0
+Canada,2016,30.0
+Canada,2017,40.0
+Canada,2018,40.0
+Canada,2019,40.0
+China,1995,204.0
+China,1996,185.0
+China,1997,310.0
+China,1998,224.0
+China,1999,300.0
+China,2000,430.0
+China,2001,450.0
+China,2002,629.0
+China,2003,710.0
+China,2004,700.0
+China,2005,720.0
+China,2006,720.0
+China,2007,800.0
+China,2008,650.0
+China,2009,450.0
+China,2010,700.0
+China,2011,800.0
+China,2012,820.0
+China,2013,750.0
+China,2014,780.0
+China,2015,780.0
+China,2016,780.0
+China,2017,625.0
+China,2018,630.0
+China,2019,700.0
+India,1995,136.263
+India,1996,117.761
+India,1997,111.518
+India,1998,135.668
+India,1999,108.826
+India,2000,124.79
+India,2001,105.814
+India,2002,106.06
+India,2003,87.207
+India,2004,108.15
+India,2005,125.651
+India,2006,162.293
+India,2007,170.813
+India,2008,117.767
+India,2009,124.625
+India,2010,115.697
+India,2011,153.339
+India,2012,134.735
+India,2013,146.39
+India,2014,116.712
+India,2015,134.568
+India,2016,122.437
+India,2017,35.0
+India,2018,35.0
+India,2019,35.0
+Madagascar,1995,16.119
+Madagascar,1996,12.134
+Madagascar,1997,14.107
+Madagascar,1998,20.629
+Madagascar,1999,16.137
+Madagascar,2000,40.328
+Madagascar,2001,2.013
+Madagascar,2002,2.0
+Madagascar,2003,15.0
+Madagascar,2004,7.77
+Madagascar,2005,6.4
+Madagascar,2006,4.857
+Madagascar,2007,5.351
+Madagascar,2008,4.922
+Madagascar,2009,3.437
+Madagascar,2010,3.783
+Madagascar,2011,3.573
+Madagascar,2012,2.885
+Madagascar,2013,4.3
+Madagascar,2014,5.316
+Madagascar,2015,8.1
+Madagascar,2016,9.23
+Madagascar,2017,13.342
+Madagascar,2018,48.056
+Madagascar,2019,48.056
+Mexico,1995,34.386
+Mexico,1996,40.412
+Mexico,1997,47.981
+Mexico,1998,43.461
+Mexico,1999,27.78
+Mexico,2000,30.33
+Mexico,2001,21.442
+Mexico,2002,13.885
+Mexico,2003,8.73
+Mexico,2004,14.769
+Mexico,2005,12.357
+Mexico,2006,11.773
+Mexico,2007,9.9
+Mexico,2008,7.229
+Mexico,2009,5.105
+Mexico,2010,6.628
+Mexico,2011,7.348
+Mexico,2012,7.52
+Mexico,2013,7.024
+Mexico,2014,9.16
+Mexico,2015,6.524
+Mexico,2016,3.839
+Mexico,2017,1.746
+Mexico,2018,4.19775
+Mexico,2019,4.19775
+Mozambique,1995,3.019
+Mozambique,1996,3.283
+Mozambique,1997,5.125
+Mozambique,1998,5.889
+Mozambique,1999,4.007
+Mozambique,2017,0.3
+Mozambique,2018,104.0
+Mozambique,2019,153.0
+Russian Federation,1995,13.7
+Russian Federation,1996,13.928
+Russian Federation,1997,14.275
+Russian Federation,1998,6.0
+Russian Federation,1999,15.67
+Russian Federation,2000,20.125
+Russian Federation,2001,16.563
+Russian Federation,2002,14.241
+Russian Federation,2003,12.78
+Russian Federation,2004,13.55
+Russian Federation,2005,14.0
+Russian Federation,2006,14.0
+Russian Federation,2007,14.0
+Russian Federation,2008,14.0
+Russian Federation,2009,14.0
+Russian Federation,2010,7.7
+Russian Federation,2011,20.7
+Russian Federation,2012,14.3
+Russian Federation,2013,20.2
+Russian Federation,2014,17.6
+Russian Federation,2015,15.9
+Russian Federation,2016,19.4
+Russian Federation,2017,25.2
+Russian Federation,2018,17.8
+Russian Federation,2019,16.6
+Sri Lanka,1995,4.825
+Sri Lanka,1996,5.645
+Sri Lanka,1997,5.4
+Sri Lanka,1998,5.91
+Sri Lanka,1999,4.592
+Sri Lanka,2000,5.902
+Sri Lanka,2001,6.585
+Sri Lanka,2002,3.619
+Sri Lanka,2003,3.387
+Sri Lanka,2004,5.374
+Sri Lanka,2005,4.37
+Sri Lanka,2006,5.756
+Sri Lanka,2007,9.593
+Sri Lanka,2008,6.615
+Sri Lanka,2009,3.171
+Sri Lanka,2010,3.437
+Sri Lanka,2011,3.357
+Sri Lanka,2012,4.173
+Sri Lanka,2013,3.143
+Sri Lanka,2014,4.0
+Sri Lanka,2015,4.212
+Sri Lanka,2016,4.0
+Sri Lanka,2017,3.5
+Sri Lanka,2018,4.0
+Sri Lanka,2019,4.0
+Ukraine,1995,8.757
+Ukraine,1996,5.367
+Ukraine,1997,4.289
+Ukraine,1998,5.104
+Ukraine,1999,7.461
+Ukraine,2000,7.431
+Ukraine,2001,6.4
+Ukraine,2002,9.4
+Ukraine,2003,11.0
+Ukraine,2004,10.96
+Ukraine,2005,10.4
+Ukraine,2006,10.7
+Ukraine,2007,10.6
+Ukraine,2008,11.3
+Ukraine,2009,4.3
+Ukraine,2010,2.8
+Ukraine,2011,0.6
+Ukraine,2012,4.6
+Ukraine,2013,6.9
+Ukraine,2014,13.8
+Ukraine,2015,14.5
+Ukraine,2016,14.63
+Ukraine,2017,14.855
+Ukraine,2018,15.0
+Ukraine,2019,15.0
+Zimbabwe,1995,11.381
+Zimbabwe,1996,7.691
+Zimbabwe,1997,12.779
+Zimbabwe,1998,13.806
+Zimbabwe,1999,11.405
+Zimbabwe,2000,11.838
+Zimbabwe,2001,11.836
+Zimbabwe,2002,9.912
+Zimbabwe,2003,7.675
+Zimbabwe,2004,10.267
+Zimbabwe,2005,4.298
+Zimbabwe,2006,6.588
+Zimbabwe,2007,5.418
+Zimbabwe,2008,5.134
+Zimbabwe,2009,2.463
+Zimbabwe,2010,4.0
+Zimbabwe,2011,7.0
+Zimbabwe,2012,6.0
+Zimbabwe,2013,4.0
+Zimbabwe,2014,7.0
+Zimbabwe,2015,7.0
+Zimbabwe,2016,6.0
+Zimbabwe,2017,1.58
+Zimbabwe,2018,2.0
+Zimbabwe,2019,2.0
+Rest of World,1995,96.327
+Rest of World,1996,108.048
+Rest of World,1997,106.03
+Rest of World,1998,92.629
+Rest of World,1999,75.941
+Rest of World,2000,69.339
+Rest of World,2001,56.885
+Rest of World,2002,55.067
+Rest of World,2003,38.908
+Rest of World,2004,45.79
+Rest of World,2005,48.037
+Rest of World,2006,44.928
+Rest of World,2007,36.912
+Rest of World,2008,40.719
+Rest of World,2009,58.46
+Rest of World,2010,24.674
+Rest of World,2011,25.232
+Rest of World,2012,49.732
+Rest of World,2013,51.604
+Rest of World,2014,37.062
+Rest of World,2015,22.772
+Rest of World,2016,21.612
+Rest of World,2017,22.892
+Rest of World,2018,44.404
+Rest of World,2019,48.444
+Total World,1995,587.367
+Total World,1996,564.735
+Total World,1997,697.948
+Total World,1998,639.465
+Total World,1999,650.322
+Total World,2000,836.291
+Total World,2001,773.204
+Total World,2002,929.106
+Total World,2003,990.426
+Total World,2004,1020.962
+Total World,2005,1049.028
+Total World,2006,1085.089
+Total World,2007,1167.75
+Total World,2008,965.186
+Total World,2009,739.986
+Total World,2010,981.083
+Total World,2011,1151.337
+Total World,2012,1156.055
+Total World,2013,1105.469
+Total World,2014,1107.676
+Total World,2015,1098.676
+Total World,2016,1096.148
+Total World,2017,868.415
+Total World,2018,1039.45775
+Total World,2019,1162.29775
