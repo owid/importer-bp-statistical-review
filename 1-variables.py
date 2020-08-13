@@ -31,7 +31,7 @@ def process_sheet(sheet_name, skiprows, subvariable, unit_override):
     """
     print(sheet_name)
 
-    sheet = pd.read_excel("input/bp_data_2019.xlsx", sheet_name=sheet_name, skiprows=skiprows)
+    sheet = pd.read_excel("input/bp_data_2020.xlsx", sheet_name=sheet_name, skiprows=skiprows)
 
     if pd.isnull(unit_override):
         unit = sheet.columns[0]
