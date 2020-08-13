@@ -7,7 +7,7 @@ def main():
 
     all_entities = pd.read_csv("./standardization/entities-standardized.csv")
 
-    db = DBUtils(connection)
+    db = DBUtils(connection.cursor())
 
     new_entities = all_entities[all_entities["db_entity_id"].isnull()]
 
