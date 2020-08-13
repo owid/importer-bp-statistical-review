@@ -1,9 +1,8 @@
 import pandas as pd
+from db import connection
+from db_utils import DBUtils
 
 def main():
-
-    from db import connection
-    from db_utils import DBUtils
 
     all_entities = pd.read_csv("./standardization/entities-standardized.csv")
 
