@@ -57,7 +57,7 @@ def process_sheet(sheet, skiprows, var_id):
     )
     data = data.dropna(how="all")
     max_row = data[data[data.columns[0]] == "Total World"].index.min()
-    data = data[:max_row+1]
+    data = data.loc[:max_row]
     data = data.set_index(data.columns[0])
     last_year = data.columns.get_loc(LAST_YEAR_OF_DATA)
     data = data[data.columns[:last_year+1]]
