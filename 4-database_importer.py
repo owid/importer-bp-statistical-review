@@ -43,12 +43,12 @@ def main():
         #Inserting the source
         db_source_id = db.upsert_source(
             name="BP Statistical Review of Global Energy (2020)",
-            description={
+            description=json.dumps({
                 "dataPublishedBy": "BP",
                 "dataPublisherSource": "Statistical Review of World Energy",
                 "link": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html",
                 "retrievedDate": "August 1, 2020"
-            },
+            }),
             dataset_id=db_dataset_id
         )
 
@@ -65,7 +65,7 @@ def main():
                 short_unit=None,
                 source_id=db_source_id,
                 dataset_id=db_dataset_id,
-                description=json.dumps({ 'additionalInfo': variable["notes"] })
+                description=json.dumps({"additionalInfo": variable["notes"]})
             )
 
             data_values = pd.read_csv("./output/datapoints/datapoints_%d.csv" % variable.id)
