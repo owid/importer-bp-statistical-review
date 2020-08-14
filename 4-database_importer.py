@@ -54,6 +54,7 @@ def main():
 
         # Inserting variables
         variables = pd.read_csv("output/variables.csv")
+        variables["notes"] = variables.notes.fillna("")
 
         for _, variable in variables.iterrows():
 
