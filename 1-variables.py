@@ -40,10 +40,18 @@ def process_sheet(sheet_name, skiprows, subvariable, unit_override):
     else:
         unit = unit_override
 
-    notes_idx = sheet[sheet.iloc[:, 0].str.contains(("Notes:|Note:"), na=False)].index.values
+    notes_idx = sheet[sheet.iloc[:, 0].str.contains(r"Notes?:", na=False)].index.values
     if len(notes_idx) > 0:
         notes_idx = notes_idx[0]
-        notes = " ".join(sheet.iloc[notes_idx:, 0].values)
+        notes = (
+            sheet.iloc[notes_idx:, 0]
+            .str.strip()
+            .str.replace("^Notes?: ", "")
+            .str.replace(r"\s+", " ")
+            .str.strip()
+            .values
+        )
+        notes = " ".join(notes)
     else:
         notes = pd.NA
 
