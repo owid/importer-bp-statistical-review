@@ -2,6 +2,8 @@ import pandas as pd
 from db import connection
 from db_utils import DBUtils
 
+USER_ID = 46 # id of the user inserting the new data (see `users` SQL table)
+
 def main():
 
     bp_entities = pd.read_csv("./standardization/entities.csv")
@@ -34,7 +36,7 @@ def main():
         db_dataset_id = db.upsert_dataset(
             name="BP Statistical Review of Global Energy",
             namespace="bpstatreview_2020",
-            user_id=35
+            user_id=USER_ID
         )
 
         #Inserting the source
