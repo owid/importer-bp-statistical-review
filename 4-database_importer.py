@@ -65,7 +65,7 @@ def main():
                 short_unit=None,
                 source_id=db_source_id,
                 dataset_id=db_dataset_id,
-                description=json.dumps({"additionalInfo": variable["notes"]})
+                description=variable["notes"]
             )
 
             data_values = pd.read_csv("./output/datapoints/datapoints_%d.csv" % variable.id)
