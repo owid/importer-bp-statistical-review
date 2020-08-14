@@ -44,9 +44,9 @@ def main():
         db_source_id = db.upsert_source(
             name="BP Statistical Review of Global Energy (2020)",
             description={
-                "dataPublishedBy": "BP"
-                "dataPublisherSource": "Statistical Review of World Energy"
-                "link": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html"
+                "dataPublishedBy": "BP",
+                "dataPublisherSource": "Statistical Review of World Energy",
+                "link": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html",
                 "retrievedDate": "August 1, 2020"
             },
             dataset_id=db_dataset_id
