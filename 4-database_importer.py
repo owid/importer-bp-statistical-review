@@ -1,4 +1,5 @@
 import pandas as pd
+import json
 from db import connection
 from db_utils import DBUtils
 
@@ -59,7 +60,7 @@ def main():
                 short_unit=None,
                 source_id=db_source_id,
                 dataset_id=db_dataset_id,
-                description=variable["notes"] if pd.notnull(variable["notes"]) else ""
+                description=json.dumps({ 'additionalInfo': variable["notes"] })
             )
 
             data_values = pd.read_csv("./output/datapoints/datapoints_%d.csv" % variable.id)
