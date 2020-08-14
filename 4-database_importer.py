@@ -1,45 +1,60 @@
 import pandas as pd
+import json
 from db import connection
 from db_utils import DBUtils
 
+USER_ID = 46 # id of the user inserting the new data (see `users` SQL table)
+
 def main():
 
-    entities = pd.read_csv("./standardization/entities-standardized.csv")
+    bp_entities = pd.read_csv("./standardization/entities.csv")
+    std_entities = pd.read_csv("./standardization/entities-standardized.csv")
+    new_entities = bp_entities[-bp_entities.name.isin(std_entities.name)]
 
-    with connection as cnx:
+    if len(new_entities) > 0:
+        print("The following entities do not exist yet in entities-standardized.csv")
+        print(new_entities)
+        print("Press CTRL+C to cancel and match+add them yourself to entities-standardized.csv")
+        _ = input("or press ENTER to proceed and look them up (or create) in the database: ")
 
-        db = DBUtils(cnx)
+    std_entities = pd.concat([std_entities, new_entities]).reset_index(drop=True)
+    std_entities.loc[
+        std_entities.standardized_name.isnull(), "standardized_name"
+    ] = std_entities.name
 
-        all_entities = entities.copy()
-        new_entities = all_entities[all_entities["db_entity_id"].isnull()]
+    with connection.cursor() as cursor:
 
-        for _, entity in new_entities.iterrows():
-            entity_id = entity.name
-            entity_name = entity["name"]
-            db_entity_id = db.get_or_create_entity(entity_name)
-            all_entities.loc[entity_id, "db_entity_id"] = db_entity_id
+        db = DBUtils(cursor)
 
-        db_entity_id_by_name = {
-            row["name"]: int(row["db_entity_id"])
-            for _, row in all_entities.iterrows()
-        }
+        for _, row in std_entities[std_entities.db_entity_id.isnull()].iterrows():
+            std_entities.loc[
+                std_entities.standardized_name == row["standardized_name"], "db_entity_id"
+            ] = db.get_or_create_entity(row["standardized_name"])
+
+        db_entity_id_by_bp_name = dict(zip(std_entities.name, std_entities.db_entity_id))
 
         # Inserting the dataset
         db_dataset_id = db.upsert_dataset(
             name="BP Statistical Review of Global Energy",
-            namespace="bpstatreview_2019",
-            user_id=35
+            namespace="bpstatreview_2020",
+            user_id=USER_ID
         )
 
         #Inserting the source
         db_source_id = db.upsert_source(
-            name="BP Statistical Review of Global Energy (2019)",
-            description="",
+            name="BP Statistical Review of Global Energy (2020)",
+            description=json.dumps({
+                "dataPublishedBy": "BP",
+                "dataPublisherSource": "Statistical Review of World Energy",
+                "link": "https://www.bp.com/en/global/corporate/energy-economics/statistical-review-of-world-energy.html",
+                "retrievedDate": "August 1, 2020"
+            }),
             dataset_id=db_dataset_id
         )
 
         # Inserting variables
         variables = pd.read_csv("output/variables.csv")
+        variables["notes"] = variables.notes.fillna("")
 
         for _, variable in variables.iterrows():
 
@@ -51,7 +66,7 @@ def main():
                 short_unit=None,
                 source_id=db_source_id,
                 dataset_id=db_dataset_id,
-                description=variable["notes"] if pd.notnull(variable["notes"]) else ""
+                description=variable["notes"]
             )
 
             data_values = pd.read_csv("./output/datapoints/datapoints_%d.csv" % variable.id)
@@ -59,11 +74,11 @@ def main():
             values = [(
                 float(row["value"]),
                 int(row["year"]),
-                db_entity_id_by_name[row["country"]],
+                db_entity_id_by_bp_name[row["country"]],
                 db_variable_id
             ) for _, row in data_values.iterrows()]
 
-            print("Inserting values…")
+            print("Inserting values...")
             db.upsert_many("""
                 INSERT INTO data_values (value, year, entityId, variableId)
                 VALUES (%s, %s, %s, %s)

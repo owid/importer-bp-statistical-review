@@ -1,89 +1,318 @@
-country,value,year
-Canada,60.13193548387096,2017
-Mexico,30.861009999999997,2017
-US,1310.0045612903211,2017
-Total North America,1400.997506774192,2017
-Argentina,2.0320819672131147,2017
-Brazil,25.766994981776012,2017
-Other S. & Cent. America,49.68496313900654,2017
-Total S. & Cent. America,77.48404008799567,2017
-Germany,241.9308,2017
-Italy,35.1287,2017
-Netherlands,31.27554,2017
-Poland,133.813,2017
-Spain,46.349,2017
-Turkey,97.47630000000001,2017
-Ukraine,46.72771724225855,2017
-United Kingdom,22.529168818102583,2017
-Other Europe,233.27412457092743,2017
-Total Europe,888.5043506312885,2017
-Kazakhstan,69.85740254006613,2017
-Russian Federation,168.90267785589995,2017
-Other CIS,12.672056952732241,2017
-Total CIS,251.43213734869835,2017
-Iran,0.4866666666666667,2017
-Saudi Arabia,0.0,2017
-United Arab Emirates,0.0,2017
-Other Middle East,22.264238617838803,2017
-Total Middle East,22.75090528450547,2017
-Egypt,0.0,2017
-South Africa,221.36357991078376,2017
-Other Africa,27.418535280347736,2017
-Total Africa,248.78211519113148,2017
-Australia,159.13383500000003,2017
-China,4445.497262597887,2017
-India,1117.6127193299922,2017
-Indonesia,147.964,2017
-Japan,361.8065471611933,2017
-Malaysia,67.7423339107199,2017
-South Korea,261.699628,2017
-Taiwan,125.9251,2017
-Thailand,35.732450111,2017
-Vietnam,76.14309501560109,2017
-Other Asia Pacific,116.94405561255891,2017
-Total Asia Pacific,6916.201026738954,2017
-Total World,9806.152082056766,2017
-Canada,59.260807365210155,2018
-Mexico,29.207574239609126,2018
-US,1245.789137634409,2018
-Total North America,1334.2575192392283,2018
-Argentina,2.0435827962902726,2018
-Brazil,21.901939064214346,2018
-Other S. & Cent. America,52.59010263447361,2018
-Total S. & Cent. America,76.53562449497824,2018
-Germany,229.0,2018
-Italy,36.57256160833972,2018
-Netherlands,30.03169711563808,2018
-Poland,134.693,2018
-Spain,38.39524910767874,2018
-Turkey,111.72244377209839,2018
-Ukraine,47.658118663986684,2018
-United Kingdom,16.83510687379909,2018
-Other Europe,217.82701641374894,2018
-Total Europe,862.7351935552897,2018
-Kazakhstan,70.17628012575663,2018
-Russian Federation,177.47658422179967,2018
-Other CIS,11.326053692066619,2018
-Total CIS,258.9789180396229,2018
-Iran,0.4866666666666667,2018
-Saudi Arabia,0.0,2018
-United Arab Emirates,0.0,2018
-Other Middle East,20.7972397338319,2018
-Total Middle East,21.28390640049857,2018
-Egypt,0.0,2018
-South Africa,224.9648759171115,2018
-Other Africa,30.957214234912655,2018
-Total Africa,255.92209015202417,2018
-Australia,156.562805,2018
-China,4732.447892613783,2018
-India,1176.2627056202382,2018
-Indonesia,156.35531145516427,2018
-Japan,347.1923601957632,2018
-Malaysia,74.09061679335872,2018
-South Korea,261.30045001181696,2018
-Taiwan,126.61280000000001,2018
-Thailand,35.79642368,2018
-Vietnam,86.65771954082904,2018
-Other Asia Pacific,137.5356685594185,2018
-Total Asia Pacific,7290.814753470371,2018
-Total World,10100.528005352016,2018
+country,year,value
+Australia,1995,0.824
+Australia,1996,0.942
+Australia,1997,1.219
+Australia,1998,1.269
+Australia,1999,1.01034484863281
+Australia,2000,3.59847998046875
+Australia,2001,4.31193994140625
+Australia,2002,4.854
+Australia,2003,5.12
+Australia,2004,4.55
+Australia,2005,4.11
+Australia,2006,5.05
+Australia,2007,4.74
+Australia,2008,4.79
+Australia,2009,4.63
+Australia,2010,3.85
+Australia,2011,3.85
+Australia,2012,5.88
+Australia,2013,6.4
+Australia,2014,6.201255859375
+Australia,2015,6.03
+Australia,2016,5.47
+Australia,2017,5.8
+Australia,2018,4.9
+Australia,2019,5.12090163934426
+Canada,1995,5.339
+Canada,1996,5.714
+Canada,1997,5.709
+Canada,1998,5.861
+Canada,1999,5.323
+Canada,2000,5.298
+Canada,2001,5.326
+Canada,2002,5.148
+Canada,2003,4.327
+Canada,2004,5.06
+Canada,2005,5.767
+Canada,2006,7.115
+Canada,2007,8.692
+Canada,2008,8.953
+Canada,2009,3.919
+Canada,2010,4.636
+Canada,2011,6.836
+Canada,2012,3.698
+Canada,2013,4.005
+Canada,2014,3.907
+Canada,2015,4.339
+Canada,2016,4.216
+Canada,2017,3.704
+Canada,2018,3.524
+Canada,2019,3.336
+DR Congo,1995,1.67
+DR Congo,1996,2.0
+DR Congo,1997,3.5
+DR Congo,1998,5.0
+DR Congo,1999,7.0
+DR Congo,2000,11.0
+DR Congo,2001,12.0
+DR Congo,2002,14.6
+DR Congo,2003,14.8
+DR Congo,2004,20.2
+DR Congo,2005,24.5
+DR Congo,2006,27.1
+DR Congo,2007,25.4
+DR Congo,2008,42.461
+DR Congo,2009,56.103
+DR Congo,2010,84.005
+DR Congo,2011,99.475
+DR Congo,2012,86.433
+DR Congo,2013,76.572
+DR Congo,2014,76.4749609375
+DR Congo,2015,84.4004765625
+DR Congo,2016,69.0382890625
+DR Congo,2017,90.31940625
+DR Congo,2018,109.4023
+DR Congo,2019,77.9637
+Cuba,1995,1.591
+Cuba,1996,2.011
+Cuba,1997,2.358
+Cuba,1998,2.665
+Cuba,1999,2.537
+Cuba,2000,2.852
+Cuba,2001,3.425
+Cuba,2002,3.442
+Cuba,2003,3.274
+Cuba,2004,3.554
+Cuba,2005,4.798
+Cuba,2006,5.602
+Cuba,2007,4.54
+Cuba,2008,4.0
+Cuba,2009,4.6
+Cuba,2010,4.8
+Cuba,2011,5.1
+Cuba,2012,4.7
+Cuba,2013,4.0
+Cuba,2014,3.7
+Cuba,2015,4.3
+Cuba,2016,5.1
+Cuba,2017,5.0
+Cuba,2018,4.49041932796445
+Cuba,2019,4.6875867814496
+Madagascar,2006,0.0
+Madagascar,2007,0.0
+Madagascar,2008,0.0
+Madagascar,2009,0.0
+Madagascar,2010,0.165
+Madagascar,2011,0.5
+Madagascar,2012,0.6
+Madagascar,2013,2.4
+Madagascar,2014,3.4
+Madagascar,2015,4.0
+Madagascar,2016,3.8
+Madagascar,2017,3.40519480519481
+Madagascar,2018,3.30939648586707
+Madagascar,2019,3.36745607333843
+Morocco,1995,0.537
+Morocco,1996,0.565
+Morocco,1997,0.714
+Morocco,1998,0.287
+Morocco,1999,0.863
+Morocco,2000,0.967
+Morocco,2001,1.242
+Morocco,2002,1.453
+Morocco,2003,1.391
+Morocco,2004,1.6
+Morocco,2005,1.6
+Morocco,2006,2.6
+Morocco,2007,1.8
+Morocco,2008,1.7
+Morocco,2009,2.61
+Morocco,2010,3.11
+Morocco,2011,2.16
+Morocco,2012,2.0
+Morocco,2013,2.0
+Morocco,2014,2.15
+Morocco,2015,2.25
+Morocco,2016,2.72986889648437
+Morocco,2017,2.52391528320312
+Morocco,2018,2.1
+Morocco,2019,2.1
+New Caledonia,1995,1.1
+New Caledonia,1996,1.1
+New Caledonia,1997,1.0
+New Caledonia,1998,1.0
+New Caledonia,1999,1.1
+New Caledonia,2000,1.2
+New Caledonia,2001,1.4
+New Caledonia,2002,2.78
+New Caledonia,2003,2.602
+New Caledonia,2004,2.726
+New Caledonia,2005,1.769
+New Caledonia,2006,1.629
+New Caledonia,2007,2.25
+New Caledonia,2008,2.11
+New Caledonia,2009,2.0
+New Caledonia,2010,2.85
+New Caledonia,2011,3.1
+New Caledonia,2012,2.67
+New Caledonia,2013,3.19
+New Caledonia,2014,4.04
+New Caledonia,2015,3.69
+New Caledonia,2016,3.39
+New Caledonia,2017,2.8
+New Caledonia,2018,1.661
+New Caledonia,2019,1.24
+Papua New Guinea,2008,0.0
+Papua New Guinea,2009,0.0
+Papua New Guinea,2010,0.0
+Papua New Guinea,2012,0.469
+Papua New Guinea,2013,1.013
+Papua New Guinea,2014,2.134
+Papua New Guinea,2015,2.505
+Papua New Guinea,2016,2.19
+Papua New Guinea,2017,3.31
+Papua New Guinea,2018,3.28
+Papua New Guinea,2019,3.1
+Philippines,2003,0.1
+Philippines,2004,0.1
+Philippines,2005,0.3
+Philippines,2006,0.9
+Philippines,2007,1.0
+Philippines,2008,1.2
+Philippines,2009,1.4
+Philippines,2010,2.1
+Philippines,2011,2.0
+Philippines,2012,2.7
+Philippines,2013,2.8
+Philippines,2014,4.6
+Philippines,2015,4.3
+Philippines,2016,4.1
+Philippines,2017,4.6
+Philippines,2018,4.437341917
+Philippines,2019,4.62635712
+Russian Federation,1995,3.5
+Russian Federation,1996,3.3
+Russian Federation,1997,3.3
+Russian Federation,1998,3.6
+Russian Federation,1999,3.9
+Russian Federation,2000,4.0
+Russian Federation,2001,4.6
+Russian Federation,2002,4.6
+Russian Federation,2003,6.1
+Russian Federation,2004,6.0
+Russian Federation,2005,6.3
+Russian Federation,2006,6.3
+Russian Federation,2007,6.3
+Russian Federation,2008,6.2
+Russian Federation,2009,6.1
+Russian Federation,2010,6.2
+Russian Federation,2011,6.1
+Russian Federation,2012,6.3
+Russian Federation,2013,6.3
+Russian Federation,2014,6.3
+Russian Federation,2015,6.2
+Russian Federation,2016,5.5
+Russian Federation,2017,5.9
+Russian Federation,2018,6.1
+Russian Federation,2019,6.1
+South Africa,1995,0.288
+South Africa,1996,0.35
+South Africa,1997,0.465
+South Africa,1998,0.435
+South Africa,1999,0.45
+South Africa,2000,0.58
+South Africa,2001,0.56
+South Africa,2002,0.52
+South Africa,2003,0.48
+South Africa,2004,0.61
+South Africa,2005,0.62
+South Africa,2006,0.6
+South Africa,2007,0.6
+South Africa,2008,0.59
+South Africa,2009,0.61
+South Africa,2010,1.8
+South Africa,2011,1.6
+South Africa,2012,2.5
+South Africa,2013,3.0
+South Africa,2014,3.0
+South Africa,2015,2.9
+South Africa,2016,2.3
+South Africa,2017,2.3
+South Africa,2018,2.3
+South Africa,2019,2.4
+Zambia,1995,2.931
+Zambia,1996,4.829
+Zambia,1997,4.028
+Zambia,1998,4.961
+Zambia,1999,4.378
+Zambia,2000,2.877
+Zambia,2001,4.182
+Zambia,2002,3.99
+Zambia,2003,3.211
+Zambia,2004,6.082
+Zambia,2005,5.529
+Zambia,2006,4.658
+Zambia,2007,4.69
+Zambia,2008,4.613
+Zambia,2009,5.879
+Zambia,2010,8.648
+Zambia,2011,7.702
+Zambia,2012,5.435
+Zambia,2013,5.919
+Zambia,2014,4.562
+Zambia,2015,2.979
+Zambia,2016,4.982
+Zambia,2017,2.6489
+Zambia,2018,1.585
+Zambia,2019,1.268
+Rest of World,1995,2.874
+Rest of World,1996,2.204
+Rest of World,1997,2.01
+Rest of World,1998,1.863
+Rest of World,1999,2.452
+Rest of World,2000,2.427
+Rest of World,2001,2.623
+Rest of World,2002,3.517
+Rest of World,2003,3.174
+Rest of World,2004,3.773
+Rest of World,2005,5.314
+Rest of World,2006,4.777
+Rest of World,2007,6.37
+Rest of World,2008,6.311
+Rest of World,2009,5.681
+Rest of World,2010,7.298
+Rest of World,2011,9.819
+Rest of World,2012,11.351
+Rest of World,2013,12.883
+Rest of World,2014,8.964
+Rest of World,2015,8.574
+Rest of World,2016,6.30428482055664
+Rest of World,2017,5.48
+Rest of World,2018,7.504
+Rest of World,2019,6.46
+Total World,1995,20.654
+Total World,1996,23.015
+Total World,1997,24.303
+Total World,1998,26.941
+Total World,1999,29.0133448486328
+Total World,2000,34.7994799804688
+Total World,2001,39.6699399414062
+Total World,2002,44.904
+Total World,2003,44.579
+Total World,2004,54.255
+Total World,2005,60.607
+Total World,2006,66.331
+Total World,2007,66.382
+Total World,2008,82.928
+Total World,2009,93.532
+Total World,2010,129.462
+Total World,2011,148.242
+Total World,2012,134.736
+Total World,2013,130.482
+Total World,2014,129.433216796875
+Total World,2015,136.4674765625
+Total World,2016,119.120442779541
+Total World,2017,137.791416338398
+Total World,2018,154.593457730832
+Total World,2019,121.770001614132

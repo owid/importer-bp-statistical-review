@@ -2,14 +2,50 @@ import pandas as pd
 import numpy as np
 
 
-LAST_YEAR_OF_DATA = 2018
-DATA_PATH = "input/bp_data_2019.xlsx"
+LAST_YEAR_OF_DATA = 2019
+DATA_PATH = "input/bp_data_2020.xlsx"
 OUT_PATH = "output/datapoints/"
 
 
 def normalize_country(data):
     data["country"] = data["country"].str.replace(r"\s*[^A-Za-z\s]*$", "")
     return data
+
+
+def process_biofuel(sheet, skiprows, var_ids):
+    data = pd.read_excel(
+        DATA_PATH,
+        na_values=["n/a"],
+        sheet_name=sheet,
+        skiprows=skiprows
+    )
+    data = data.dropna(how="all").reset_index(drop=True)
+    last_year = data.columns.get_loc(LAST_YEAR_OF_DATA)
+    data = data[data.columns[:last_year+1]]
+    row_numbers = np.arange(data.shape[0])
+    first_col = data[data.columns[0]]
+
+    # Total
+    min_row = 0
+    max_row = row_numbers[first_col == "Total World"][0] + 1
+    total = data[min_row:max_row]
+
+    # Biogasoline
+    min_row = row_numbers[first_col == "Biogasoline"][0] + 1
+    max_row = row_numbers[first_col == "Total World"][1] + 1
+    biogasoline = data[min_row:max_row]
+
+    # Biodiesel
+    min_row = row_numbers[first_col == "Biodiesel"][0] + 1
+    max_row = row_numbers[first_col == "Total World"][2] + 1
+    biodiesel = data[min_row:max_row]
+
+    for tmp, var_id in zip((total, biogasoline, biodiesel), var_ids):
+        tmp = tmp.set_index(data.columns[0]).T.unstack().reset_index()
+        tmp.columns = ("country", "year", "value")
+        tmp["year"] = tmp["year"].astype(str).str.replace("at end ", "").str.lstrip()
+        tmp = normalize_country(tmp)
+        tmp.dropna(how="any").to_csv(f"{OUT_PATH}datapoints_{var_id}.csv", index=False)
 
 
 def process_sheet(sheet, skiprows, var_id):
@@ -20,8 +56,9 @@ def process_sheet(sheet, skiprows, var_id):
         skiprows=skiprows
     )
     data = data.dropna(how="all")
+    max_row = data[data[data.columns[0]] == "Total World"].index.min()
+    data = data.loc[:max_row]
     data = data.set_index(data.columns[0])
-    data = data[:"Total World"]
     last_year = data.columns.get_loc(LAST_YEAR_OF_DATA)
     data = data[data.columns[:last_year+1]]
     data = data.T.unstack().reset_index()
@@ -124,7 +161,7 @@ def cobalt_production_reserves(sheet, skiprows, var_ids):
             )
 
             data = data.dropna(how="all")
-            data = data[[data.columns[0], "2018.3"]]
+            data = data[[data.columns[0], f"{LAST_YEAR_OF_DATA}.3"]]
             index_name = data.columns[0]
             data_production = data.set_index(index_name)
             data_production = data_production[:"Total World"]
@@ -322,7 +359,9 @@ def main():
 
         print(f"Processing sheet '{sheet_name}' for variable(s) {var_id}")
 
-        if sheet_name == "Coal - Reserves":
+        if "Biofuels" in sheet_name:
+            process_biofuel(sheet_name, skiprows, var_id)
+        elif sheet_name == "Coal - Reserves":
             process_coal_reserves(sheet_name, skiprows, var_id)
         elif sheet_name == "Cobalt Production-Reserves":
             cobalt_production_reserves(sheet_name, skiprows, var_id)
